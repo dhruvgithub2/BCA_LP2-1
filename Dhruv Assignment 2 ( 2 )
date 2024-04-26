@@ -1,0 +1,44 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+// Base class
+class Student {
+protected:
+    string name;
+    int age;
+
+public:
+    Student(const string& name, int age) : name(name), age(age) {}
+
+    void display() {
+        cout << "Name: " << name << endl;
+        cout << "Age: " << age << endl;
+    }
+};
+
+// Derived class
+class Transport : public Student {
+private:
+    string transportType;
+
+public:
+    Transport(const string& name, int age, const string& transportType)
+        : Student(name, age), transportType(transportType) {}
+
+    void displayTransportDetails() {
+        display(); // Inherited function from the base class
+        cout << "Transport Type: " << transportType << endl;
+    }
+};
+
+int main() {
+    // Creating an object of Transport class
+    Transport student1("John", 20, "Bus");
+
+    // Displaying complete details of the student using Transport class
+    cout << "Student Details:" << endl;
+    student1.displayTransportDetails();
+
+    return 0;
+}
